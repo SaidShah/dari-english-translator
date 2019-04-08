@@ -39,14 +39,18 @@ margin-top: 2vw;
   width: 60vw;
   height: 5vw;
   font-size: 1.5rem;
+  padding: 1vw;
+  resize: none;
 }
 
 .outputform{
   width: 60vw;
   height: 5vw;
   font-size: 1.5rem;
-  color: white;
+  color: yellow;
   background: black;
+  padding: 1vw;
+  resize: none;
 }
 
 .output-label{
