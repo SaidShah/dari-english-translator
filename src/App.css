@@ -37,5 +37,22 @@ margin-top: 2vw;
 
 .inputform{
   width: 60vw;
-  height: 20vw;
+  height: 5vw;
+  font-size: 1.5rem;
+}
+
+.outputform{
+  width: 60vw;
+  height: 5vw;
+  font-size: 1.5rem;
+  color: white;
+  background: black;
+}
+
+.output-label{
+  color: #0050ff;
+}
+
+.input-label{
+  color: #0050ff;
 }
