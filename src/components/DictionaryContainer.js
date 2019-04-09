@@ -20,10 +20,13 @@ class DictionaryContainer extends Component {
   }
 
   handleClick=(givenTerm,language)=>{
-    if(language==="toDari"){
-      translateDari(givenTerm)
-    }else if(language==="toEnglish"){
-      translateEnglish(givenTerm)
+    let input = givenTerm.replace(/\s+/g," ")
+    let result = input.match(/[A-Za-z]/g)
+    if(result !== null){
+        translateDari(input.trim().toLowerCase())
+      }
+    else{
+        translateEnglish(input.trim().toLowerCase())
     }
   }
 
@@ -36,17 +39,17 @@ class DictionaryContainer extends Component {
     return (
       <div>
        <div className="dictionary-buttons-container">
-        <button className="btn" onClick={()=>this.handleClick(this.state.givenInput,"toDari")}>Translate To Dari</button>
-        <button className="btn" onClick={()=>this.handleClick(this.state.givenInput,"toEnglish")}>Translate To English</button>
+        <button className="btn" onClick={()=>this.handleClick(this.state.givenInput,"toDari")}>Translate</button>
+
        </div>
 
        <div className="input-container">
-       <h2 className="input-label">Your Text</h2>
-        <textarea className="inputform" value={this.state.givenInput} name="givenInput" onChange={this.handleChange}/>
+       <h2 className="input-label">Enter Text English or Dari</h2>
+        <input className="inputform" value={this.state.givenInput} name="givenInput" onChange={this.handleChange}/>
        </div>
        <div className="input-container">
        <h2 className="output-label">Translation</h2>
-        <textarea className="outputform"  id="translation" readOnly={true}/>
+        <input className="outputform"  id="translation" readOnly={true}/>
        </div>
       </div>
     );
@@ -57,12 +60,19 @@ class DictionaryContainer extends Component {
 export default DictionaryContainer;
 
 function translateDari(englishTerm){
+  console.log(englishTerm)
   // firebase.database().ref('englishwords/'+englishTerm).set({
   //   translation: `${givenDari}`
   // });
-   firebase.database().ref('/englishwords/' + englishTerm).once('value').then(function(snapshot) {
-     document.getElementById('translation').value=snapshot.val().translation
-  });
+
+    firebase.database().ref('/englishwords/' + englishTerm).once('value').then(function(snapshot) {
+      let termsGiven = snapshot.val()
+    if(termsGiven){
+      document.getElementById('translation').value=snapshot.val().translation
+    }else{
+      document.getElementById('translation').value="Sorry no translation available"
+    }
+    })
 }
 
 function translateEnglish(givenDari){
@@ -70,6 +80,11 @@ function translateEnglish(givenDari){
   //   translation: `goodbye`
   // });
   firebase.database().ref('/englishwords/'+givenDari).once('value').then(function(snapshot) {
+    let termsGiven = snapshot.val()
+  if(termsGiven){
     document.getElementById('translation').value=snapshot.val().translation
+  }else{
+    document.getElementById('translation').value="Sorry no translation available"
+  }
  });
 }
