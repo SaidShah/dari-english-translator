@@ -1,7 +1,7 @@
 body{
-  background: #f9fcff;
+  background: #d9f2e6;
+  margin: 0;
 }
-
 
 .head-container{
   text-align: center;
@@ -15,13 +15,13 @@ body{
 }
 
 .btn{
-  margin: 1vw;
-  width: 15vw;
-  height: 3vw;
+  margin: 1rem;
+  width: 14rem;
+  height: 4rem;
   background: #0050ff;
   color: white;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 2rem;
   box-shadow: 0px 0px 5px #0050ff;
 }
 
@@ -32,24 +32,26 @@ body{
 
 .input-container{
 text-align: center;
-margin-top: 2vw;
+margin-top: 2rem;
 }
 
 .inputform{
-  width: 60vw;
-  height: 5vw;
-  font-size: 1.5rem;
-  padding: 1vw;
+  width: 70rem;
+  height: 6rem;
+  font-size: 2rem;
+  padding: 1rem;
   resize: none;
+  word-wrap: break-word;
+  font-weight: bold;
 }
 
 .outputform{
-  width: 60vw;
-  height: 5vw;
-  font-size: 1.5rem;
+  width: 70rem;
+  height: 6rem;
+  font-size: 2rem;
   color: yellow;
   background: black;
-  padding: 1vw;
+  padding: 1rem;
   resize: none;
 }
 
@@ -68,7 +70,8 @@ margin-top: 2vw;
 @media only screen and (max-width: 767px) {
     /* phones */
     body{
-      height: 160vw;
+      height: 100%;
+      margin: 0;
     }
     .head-container{
       text-align: center;
@@ -78,32 +81,34 @@ margin-top: 2vw;
     }
 
     .btn{
-      margin: 5vw;
-      height: 3vw;
+      margin: 2rem;
+      height: 3rem;
       background: #0050ff;
       color: white;
       font-weight: bold;
       font-size: 1.5rem;
       box-shadow: 0px 0px 5px #0050ff;
-      width: auto;
-      height: auto;
     }
 
     .inputform{
-      width: 60vw;
-      height: 15vw;
+      width: 15rem;
+      height: 5rem;
       font-size: 1.5rem;
-      padding: 1vw;
+      padding: 1rem;
       resize: none;
+      word-wrap: break-word;
+      font-weight: bold;
+      overflow-x: scroll;
+      overflow-y: scroll;
     }
 
     .outputform{
-      width: 60vw;
-      height: 15vw;
+      width: 15rem;
+      height: 5rem;
       font-size: 1.5rem;
       color: yellow;
       background: black;
-      padding: 1vw;
+      padding: 1rem;
       resize: none;
     }
 
